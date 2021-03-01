@@ -1,0 +1,191 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 273296 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=14328, tid=0x0000000000007f00
+#
+# JRE version: OpenJDK Runtime Environment (8.0) (build 1.8.0-adoptopenjdk-_2018_05_19_00_59-b00)
+# Java VM: OpenJDK 64-Bit Server VM (25.71-b00 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001ec47000):  JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=32512, stack(0x000000001f640000,0x000000001f740000)]
+
+Stack: [0x000000001f640000,0x000000001f740000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:    361  360   !   4       sun.misc.URLClassPath$JarLoader::getResource (85 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000001ecdf800 JavaThread "Service Thread" daemon [_thread_blocked, id=28096, stack(0x000000001f840000,0x000000001f940000)]
+  0x000000001ec4c800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=38088, stack(0x000000001f740000,0x000000001f840000)]
+=>0x000000001ec47000 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=32512, stack(0x000000001f640000,0x000000001f740000)]
+  0x000000001ec37000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=37128, stack(0x000000001f540000,0x000000001f640000)]
+  0x000000001ec44000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=32236, stack(0x000000001f440000,0x000000001f540000)]
+  0x000000001ec43000 JavaThread "Attach Listener" daemon [_thread_blocked, id=18320, stack(0x000000001f340000,0x000000001f440000)]
+  0x000000001ec42000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=43304, stack(0x000000001f240000,0x000000001f340000)]
+  0x000000001ec30800 JavaThread "Finalizer" daemon [_thread_blocked, id=39984, stack(0x000000001f010000,0x000000001f110000)]
+  0x0000000003277000 JavaThread "Reference Handler" daemon [_thread_blocked, id=37148, stack(0x000000001eb10000,0x000000001ec10000)]
+  0x0000000002fed800 JavaThread "main" [_thread_in_Java, id=22264, stack(0x0000000002ff0000,0x00000000030f0000)]
+
+Other Threads:
+  0x000000001cd36800 VMThread [stack: 0x000000001ea10000,0x000000001eb10000] [id=12816]
+  0x000000001ece8800 WatcherThread [stack: 0x000000001f940000,0x000000001fa40000] [id=9552]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 76288K, used 13112K [0x000000076ae00000, 0x0000000770300000, 0x00000007c0000000)
+  eden space 65536K, 20% used [0x000000076ae00000,0x000000076bace010,0x000000076ee00000)
+  from space 10752K, 0% used [0x000000076f880000,0x000000076f880000,0x0000000770300000)
+  to   space 10752K, 0% used [0x000000076ee00000,0x000000076ee00000,0x000000076f880000)
+ ParOldGen       total 175104K, used 0K [0x00000006c0a00000, 0x00000006cb500000, 0x000000076ae00000)
+  object space 175104K, 0% used [0x00000006c0a00000,0x00000006c0a00000,0x00000006cb500000)
+ Metaspace       used 4512K, capacity 5208K, committed 5504K, reserved 1056768K
+  class space    used 533K, capacity 568K, committed 640K, reserved 1048576K
+
+Card table byte_map: [0x0000000012640000,0x0000000012e40000] byte_map_base: 0x000000000f03b000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006554be50
+ Begin Bits: [0x0000000013ba0000, 0x0000000017b78000)
+ End Bits:   [0x0000000017b78000, 0x000000001bb50000)
+
+Polling page: 0x0000000002f90000
+
+CodeCache: size=245760Kb used=1932Kb max_used=1932Kb free=243827Kb
+ bounds [0x0000000003280000, 0x00000000034f0000, 0x0000000012280000]
+ total_blobs=607 nmethods=363 adapters=158
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.353 Thread 0x000000001ec4c800 nmethod 361 0x00000000034636d0 code [0x0000000003463880, 0x0000000003463dd0]
+Event: 0.353 Thread 0x000000001ec4c800  362       3       java.lang.StringBuffer::<init> (6 bytes)
+Event: 0.353 Thread 0x000000001ec4c800 nmethod 362 0x0000000003463190 code [0x0000000003463300, 0x00000000034635b0]
+Event: 0.354 Thread 0x000000001ec37000  363  s!   4       sun.misc.URLClassPath::getLoader (243 bytes)
+Event: 0.354 Thread 0x000000001ec4c800  364       3       java.util.zip.ZipEntry::<init> (146 bytes)
+Event: 0.354 Thread 0x000000001ec4c800 nmethod 364 0x00000000034623d0 code [0x0000000003462560, 0x00000000034629a8]
+Event: 0.355 Thread 0x000000001ec4c800  365       3       java.security.CodeSource::getCertificates (98 bytes)
+Event: 0.356 Thread 0x000000001ec4c800 nmethod 365 0x0000000003464990 code [0x0000000003464bc0, 0x00000000034657b8]
+Event: 0.357 Thread 0x000000001ec4c800  366       3       java.lang.Number::<init> (5 bytes)
+Event: 0.357 Thread 0x000000001ec4c800 nmethod 366 0x00000000034645d0 code [0x0000000003464720, 0x00000000034648d0]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (1 events):
+Event: 0.195 Thread 0x0000000002fed800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000033d3494 method=java.lang.String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String; @ 85
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.029 Thread 0x0000000002fed800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x000000076ae07f98) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\p
+Event: 0.198 Thread 0x0000000002fed800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b483ba0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 0.198 Thread 0x0000000002fed800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b483db0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 0.198 Thread 0x0000000002fed800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b4892b0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 0.198 Thread 0x0000000002fed800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b4894c0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 0.199 Thread 0x0000000002fed800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b48b2c0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 0.199 Thread 0x0000000002fed800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b48b4d0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 0.346 Thread 0x0000000002fed800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 100> (0x000000076b986358) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.347 Thread 0x0000000002fed800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 18> (0x000000076b9872b0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.347 Thread 0x0000000002fed800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 40> (0x000000076b987ee0) thrown at [C:\Users\jenkins\workspace\openjdk8_build_x86-64_windows\openjdk\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+
+Events (10 events):
+Event: 0.359 loading class java/lang/ApplicationShutdownHooks$1
+Event: 0.359 loading class java/lang/ApplicationShutdownHooks$1 done
+Event: 0.359 loading class java/lang/Shutdown
+Event: 0.359 loading class java/lang/Shutdown done
+Event: 0.359 loading class java/lang/Shutdown$Lock
+Event: 0.359 loading class java/lang/Shutdown$Lock done
+Event: 0.359 loading class java/util/logging/LogManager$2
+Event: 0.359 loading class java/util/logging/LogManager$2 done
+Event: 0.359 loading class java/util/logging/LogManager$3
+Event: 0.359 loading class java/util/logging/LogManager$3 done
+
+
+Dynamic libraries:
+0x00007ff7a7530000 - 0x00007ff7a7565000 	C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe
+0x00007ffee4b30000 - 0x00007ffee4d26000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffee43f0000 - 0x00007ffee44ad000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffee25f0000 - 0x00007ffee28b9000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffee4030000 - 0x00007ffee40dc000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffee3c40000 - 0x00007ffee3cde000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffee3aa0000 - 0x00007ffee3b3c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffee40e0000 - 0x00007ffee420b000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffee3d50000 - 0x00007ffee3ef0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffee25c0000 - 0x00007ffee25e2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffee3ce0000 - 0x00007ffee3d0a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffee28c0000 - 0x00007ffee29c9000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffee2270000 - 0x00007ffee230d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffee2310000 - 0x00007ffee2410000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffed66c0000 - 0x00007ffed695b000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21\COMCTL32.dll
+0x00007ffee3d20000 - 0x00007ffee3d50000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000066640000 - 0x0000000066712000 	C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\msvcr100.dll
+0x0000000064d80000 - 0x00000000655c9000 	C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\server\jvm.dll
+0x00007ffee2e10000 - 0x00007ffee2e18000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffed9de0000 - 0x00007ffed9dea000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffed6d00000 - 0x00007ffed6d27000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffedca70000 - 0x00007ffedca79000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffee3b40000 - 0x00007ffee3bab000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffec2150000 - 0x00007ffec215f000 	C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\verify.dll
+0x00007ffeb7c80000 - 0x00007ffeb7ca9000 	C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\java.dll
+0x00007ffeb8b40000 - 0x00007ffeb8b56000 	C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\zip.dll
+0x00007ffee3350000 - 0x00007ffee3a92000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffee03c0000 - 0x00007ffee0b55000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ffee4710000 - 0x00007ffee4a66000 	C:\WINDOWS\System32\combase.dll
+0x00007ffee1c70000 - 0x00007ffee1c9c000 	C:\WINDOWS\SYSTEM32\Wldp.dll
+0x00007ffee4660000 - 0x00007ffee470e000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007ffee32f0000 - 0x00007ffee3345000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffee21a0000 - 0x00007ffee21c6000 	C:\WINDOWS\SYSTEM32\profapi.dll
+
+VM Arguments:
+java_command: org.gradle.launcher.GradleMain -Dorg.gradle.jvmargs=-Xmx4096m --stop
+java_class_path (initial): C:\Program Files\Unity\Hub\Editor\2019.4.3f1\Editor\Data\PlaybackEngines\AndroidPlayer\Tools\gradle\lib\gradle-launcher-5.1.1.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:/Program Files/Unity/Hub/Editor/2019.4.3f1/Editor/Data/PlaybackEngines/AndroidPlayer\OpenJDK
+PATH=C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Stéphane Cayla\AppData\Local\Microsoft\WindowsApps;C:\Hugo\bin;
+USERNAME=Stéphane Cayla
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.662)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16732124k(4158628k free), swap 35051524k(5120k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.71-b00) for windows-amd64 JRE (1.8.0-adoptopenjdk-_2018_05_19_00_59-b00), built on May 19 2018 01:02:12 by "jenkins" with MS VC++ 10.0 (VS2010)
+
+time: Sun Jan 17 00:08:52 2021
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
